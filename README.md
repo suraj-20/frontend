@@ -1,4 +1,7 @@
-![image](https://github.com/suraj-20/frontend/assets/98269753/e49dd648-72a8-416a-b295-cc320997c55f)# Getting Started with Create React App
+# Getting Started with Create React App
+
+![image](https://github.com/suraj-20/frontend/assets/98269753/e49dd648-72a8-416a-b295-cc320997c55f)
+
 
 ## Home Page
 ![image](https://github.com/suraj-20/frontend/assets/98269753/337fbae5-3f6a-434f-bef4-01583ad909e1)
