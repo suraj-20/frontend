@@ -4,6 +4,7 @@ import logo from "../Assets/logo.png";
 import cart_icon from "../Assets/cart_icon.png";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../Contexts/ShopContext";
+import toast from "react-hot-toast";
 const Navbar = () => {
   const [menu, setMenu] = useState("shop");
   const { getTotalCartItems } = useContext(ShopContext);
@@ -72,6 +73,7 @@ const Navbar = () => {
           <button
             onClick={() => {
               localStorage.removeItem("Auth-token");
+              toast.success("Logged out Successfully.");
               window.location.replace("/");
             }}
           >

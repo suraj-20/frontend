@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./CSS/LoginSignup.css";
+import toast from "react-hot-toast";
 const LoginSignup = () => {
   const [state, setState] = useState("Login");
 
@@ -16,7 +17,7 @@ const LoginSignup = () => {
   const login = async () => {
     console.log("User logged in", formData);
     let responseData;
-    await fetch(`https://${process.env.REACT_APP_BASE_URL}/user/login`, {
+    await fetch(`${process.env.REACT_APP_BASE_URL}/user/login`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -30,8 +31,10 @@ const LoginSignup = () => {
     if (responseData.success) {
       localStorage.setItem("Auth-token", responseData.token);
       window.location.replace("/");
+      toast.success("User logged In");
     } else {
-      alert(responseData.error);
+      toast.error(responseData.error);
+      console.log(responseData.error);
     }
   };
 
@@ -39,7 +42,7 @@ const LoginSignup = () => {
     console.log("User Signed up", formData);
 
     let responseData;
-    await fetch(`https://${process.env.REACT_APP_BASE_URL}/user/register`, {
+    await fetch(`${process.env.REACT_APP_BASE_URL}/user/register`, {
       method: "POST",
       headers: {
         Accept: "application/json",

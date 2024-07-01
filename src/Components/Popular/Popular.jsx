@@ -6,7 +6,7 @@ const Popular = () => {
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {
-    fetch(`https://${process.env.REACT_APP_BASE_URL}/popularInWomens`)
+    fetch(`${process.env.REACT_APP_BASE_URL}/popularInWomens`)
       .then((res) => res.json())
       .then((data) => setPopular(data.popularInWomens));
   }, []);

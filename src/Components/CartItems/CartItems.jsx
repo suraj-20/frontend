@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./CartItems.css";
 import { ShopContext } from "../../Contexts/ShopContext";
+import toast from "react-hot-toast";
 // import remove_icon from "../Assets/cart_cross_icon.png";
 const CartItems = () => {
   const {
@@ -49,6 +50,7 @@ const CartItems = () => {
                   <button
                     onClick={() => {
                       addToCart(e.id);
+                      toast.success("Added");
                     }}
                   >
                     +
@@ -56,6 +58,7 @@ const CartItems = () => {
                   <button
                     onClick={() => {
                       removeFromCart(e.id);
+                      toast.success("Removed");
                     }}
                   >
                     -
@@ -86,7 +89,23 @@ const CartItems = () => {
               <h3>${subtotal !== null ? subtotal : "Loading..."}</h3>
             </div>
           </div>
-          <button>PROCEED TO CHECKOUT</button>
+          {subtotal ? (
+            <button
+              onClick={() => {
+                toast.success("Order Successfully");
+              }}
+            >
+              PROCEED TO CHECKOUT
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                toast.error("Item not found");
+              }}
+            >
+              PROCEED TO CHECKOUT
+            </button>
+          )}
         </div>
       </div>
     </div>
